@@ -11,6 +11,10 @@ const JWT_SECRET = 'a7f3e8d2c1b9a4f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1';
 app.use(cors());
 app.use(express.json());
 
+const path = require('path');
+app.use(express.static(__dirname));        // для css, script, img
+app.use(express.static(path.join(__dirname, 'html')));
+app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect('mongodb://localhost:27017/GuessGame')
   .then(() => console.log(' Підключено до MongoDB (GuessGame)'))
     .catch(err => console.error(' Помилка:', err));
