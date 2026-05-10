@@ -1,0 +1,1266 @@
+/* =============================================
+   GOOGLE FONTS
+============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto Serif', Georgia, serif;
+    background-color: #d9ceb0;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   SCREEN SYSTEM
+============================================= */
+.screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9ceb0;
+    position: relative;
+}
+
+.screen--hidden {
+    display: none;
+}
+
+/* =============================================
+   SCREEN HEADER
+============================================= */
+.screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    min-height: 48px;
+}
+
+.screen-header--bare {
+    min-height: 48px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Roboto Serif', Georgia, serif;
+    color: #555555;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* =============================================
+   BACK BUTTON
+============================================= */
+.back-btn {
+    position: absolute;
+    /* Виставляємо чіткі координати від кута */
+    top: 20px;
+    left: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    transition: background 0.15s, transform 0.15s;
+}
+
+/* Додамо ефект при наведенні, щоб користувач розумів, що це кнопка */
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Легкий сірий фон */
+    transform: scale(1.1);
+    /* Трохи збільшиться */
+}
+
+
+/* =============================================
+   LANDING SCREEN
+============================================= */
+.landing-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    gap: 16px;
+}
+
+.landing-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.landing-subtitle {
+    font-size: 18px;
+    font-family: 'Roboto Serif', Georgia, serif;
+    color: #000;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* =============================================
+   BUTTONS
+============================================= */
+.btn {
+    cursor: pointer;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    border-radius: 8px;
+    padding: 12px 32px;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Outline style */
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+.btn-outline:hover {
+    color: #d9ceb0;
+    background-color: #1a1a1a;
+}
+
+/* Primary dark style (PLAY) */
+.btn-primary {
+    background-color: #1a1a1a;
+    border: 1.5px solid #1a1a1a;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+}
+
+/* Tan / sand style */
+.btn-tan {
+    background-color: #c9bc9a;
+    border: 1.5px solid #c9bc9a;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.btn-tan:hover {
+    background-color: #bfaf8a;
+    border-color: #bfaf8a;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-top: 8px;
+    border-radius: 12px;
+}
+
+/* =============================================
+   FORM WRAPPER & CARD
+============================================= */
+.form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 40px;
+    width: 100%;
+    position: relative;
+}
+
+.form-card {
+    background-color: #fff;
+    border-radius: 28px;
+    padding: 40px 40px 32px;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 8px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+    margin-top: 150px;
+}
+
+
+.form-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 13px;
+    color: #555555;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    font-family: 'Roboto Serif', Georgia, serif;
+}
+
+/* =============================================
+   FORM INPUTS
+============================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 48px 14px 18px;
+    border: 1.5px solid #cccccc;
+    border-radius: 12px;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input::placeholder {
+    color: #888888;
+}
+
+.form-input:focus {
+    border-color: #a09070;
+    box-shadow: 0 0 0 3px rgba(160, 144, 112, 0.15);
+}
+
+.input-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    color: #888888;
+    pointer-events: none;
+}
+
+/* =============================================
+   FORM FOOTER LINK
+============================================= */
+.form-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #555555;
+    font-family: 'Roboto Serif', Georgia, serif;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 0;
+    margin-left: 4px;
+    transition: opacity 0.15s;
+}
+
+.link-btn:hover {
+    opacity: 0.65;
+}
+
+/* =============================================
+   GAME PAGE STYLES
+============================================= */
+.game-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9ceb0;
+}
+
+/* Top bar with icons */
+.game-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 10px;
+}
+
+/*Question btn*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Напівпрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Щоб з'являлося зверху */
+    padding-top: 50px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Контент вікна */
+.modal-content {
+    background-color: #d9ceb0;
+    /* Твій колір фону */
+    width: 95%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    /* Початковий стан: зміщене вгору */
+    transform: translateY(-100px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    padding-right: 10px;
+
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+    /* Робимо фон прозорим, щоб не було білих смуг */
+    margin: 10px 0;
+    /* Додає відступи зверху і знизу, щоб скрол не торкався закруглених кутів */
+}
+
+/* Налаштування самого повзунка (лінії, яку ти тягнеш) */
+.modal-content::-webkit-scrollbar-thumb {
+    background: #a09070;
+    border-radius: 20px;
+}
+
+
+/* Коли модалка активна */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Стилі всередині модалки */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-weight: bold;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.modal-text, .modal-list{
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 15px;
+    color: #000 !important;
+    line-height: 1.6;
+}
+
+.modal-list{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+.example-title{
+    font-style: 32px;
+    margin-bottom: 15px;
+}
+
+/* Стилі для плиток у прикладах */
+.example-tiles {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.example-tiles span {
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: white;
+}
+
+.example-item{
+    margin-top: 22px;
+    color: #000 !important;
+}
+.tile-preview.correct {
+    background-color: #6A9F34 !important;
+}
+
+.tile-preview.correct-multi {
+    background-color: #96B672 !important;
+}
+
+.tile-preview.correct-wrong-position {
+    background-color: #F9F871 !important;
+}
+
+.tile-preview.correct-multi-wrong-position {
+    background-color: #E67E22 !important;
+}
+
+
+.game-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    transition: background 0.15s, color 0.15s;
+    font-family: 'Roboto Serif', Georgia, serif;
+}
+
+/* Main game area */
+.game-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px 40px;
+}
+
+.game-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Controls row */
+.game-controls {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.digits-control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.digits-label {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 11px;
+    color: #555555;
+    font-weight: 400;
+}
+.digits-select {
+    position: relative;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 8px;
+    background: #d9ceb0;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    min-width: 80px;
+    height: 40px;
+    overflow: hidden;
+    transition: background 0.2s;
+}
+
+.digits-select:hover {
+    background: #cfc4a6;
+}
+.digits-select select:focus {
+    outline: none;
+    box-shadow: none;
+    box-shadow: none;
+}
+
+.digits-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Селект розтягується на весь блок */
+    width: 100%;
+    height: 100%;
+    padding: 0 40px 0 14px;
+    /* Місце справа для стрілки */
+
+    border: none;
+    background: transparent;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+}
+.digits-select select option {
+    background-color: #d9ceb0;
+    color: #1a1a1a;
+}
+
+.digits-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    /* Клік проходить крізь картинку на select */
+    z-index: 1;
+}
+
+/* Виправляємо баг в деяких браузерах для фокусу */
+.digits-select select:focus {
+    outline: none;
+}
+
+#digits-select option {
+    background-color: #d9ceb0;
+    color: #1a1a1a;
+    font-family: 'Roboto Serif', serif;
+    font-size: 15px;
+}
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    /* Ставить елементи один під одним */
+    align-items: center;
+    /* Центрує текст по горизонталі */
+    justify-content: center;
+    gap: 2px;
+    padding: 0 15px;
+}
+.stat-label {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 11px;
+    color: #555555;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+}
+/* Guess input row */
+.guess-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    margin-top: 65px;
+}
+
+.guess-input {
+    padding: 12px 20px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 10px;
+    background: #fff;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    outline: none;
+    width: 220px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.guess-input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.guess-input:focus {
+    border-color: #a09070;
+    box-shadow: 0 0 0 3px rgba(160, 144, 112, 0.15);
+}
+
+.try-btn {
+    padding: 12px 24px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 10px;
+    background: transparent;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.try-btn:hover {
+    background: #1a1a1a;
+    color: #d9ceb0;
+}
+
+/* Guess history grid */
+.guess-history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 480px;
+    align-items: center;
+}
+
+.guess-row-tiles {
+    display: flex;
+    gap: 8px;
+}
+
+.tile {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    border: 2px solid #1a1a1a;
+    background: #d9ceb0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    transition: background 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tile--correct {
+    background: #4a7c3f;
+    border-color: #4a7c3f;
+    color: #fff;
+}
+
+.tile--close {
+    background: #c97a1a;
+    border-color: #c97a1a;
+    color: #fff;
+}
+
+.tile--wrong {
+    background: #d9ceb0;
+    border-color: #1a1a1a;
+    color: #1a1a1a;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 12px;
+    color: #555555;
+}
+
+.legend-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid #1a1a1a;
+}
+
+.legend-dot--correct {
+    background: #4a7c3f;
+    border-color: #4a7c3f;
+}
+
+.legend-dot--close {
+    background: #c97a1a;
+    border-color: #c97a1a;
+}
+
+.legend-dot--wrong {
+    background: #d9ceb0;
+}
+
+/* Win/Loss overlay */
+.game-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.game-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.overlay-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 48px 40px 36px;
+    text-align: center;
+    max-width: 340px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-emoji {
+    font-size: 48px;
+}
+
+.overlay-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.overlay-message {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.overlay-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* Message toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    background: #1a1a1a;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 14px;
+    z-index: 200;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/*SETTINGS PAGE*/
+.settings-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 60px;
+    width: 100%;
+}
+
+.settings-header {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px 0 16px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    /* ← додай це */
+}
+
+.settings-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    width: 100%;
+    /* ← додай це */
+    text-align: center;
+    /* ← додай це */
+}
+
+.settings-card {
+    background-color: #fff;
+    border-radius: 28px;
+    padding: 36px;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.avatar-section {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #1a1a1a;
+    background: #f5f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.avatar-circle svg {
+    width: 56px;
+    height: 56px;
+    color: #888;
+}
+
+.btn-change {
+    cursor: pointer;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 22px;
+    background-color: #c9bc9a;
+    border: 1.5px solid #c9bc9a;
+    color: #1a1a1a;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.btn-change:hover {
+    background-color: #bfaf8a;
+    border-color: #bfaf8a;
+}
+
+/* Right fields grid */
+.avatar-fields {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-label {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 11px;
+    color: #555555;
+    font-weight: 400;
+    padding-left: 2px;
+}
+
+ .select-wrapper select {
+     appearance: none;
+     -webkit-appearance: none;
+     width: 100%;
+     padding: 12px 44px 12px 18px;
+     border: 1.5px solid #cccccc;
+     border-radius: 12px;
+     font-family: 'Roboto Serif', Georgia, serif;
+     font-size: 14px;
+     color: #1a1a1a;
+     background-color: #fff;
+     outline: none;
+     cursor: pointer;
+     transition: border-color 0.2s, box-shadow 0.2s;
+ }
+
+ .select-wrapper select:focus {
+     border-color: #a09070;
+     box-shadow: 0 0 0 3px rgba(160, 144, 112, 0.15);
+ }
+
+ .select-arrow {
+     position: absolute;
+     right: 14px;
+     top: 50%;
+     transform: translateY(-50%);
+     pointer-events: none;
+     color: #888;
+     display: flex;
+     align-items: center;
+ }
+
+
+ .settings-divider {
+     border: none;
+     border-top: 1.5px solid #eeebe3;
+     margin: 0;
+ }
+
+ .password-section {
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+ }
+
+ .password-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     gap: 16px;
+ }
+
+ .save-row {
+     display: flex;
+     justify-content: flex-end;
+ }
+
+ .btn-save {
+     cursor: pointer;
+     font-family: 'Roboto Serif', Georgia, serif;
+     font-size: 16px;
+     font-weight: 700;
+     border-radius: 12px;
+     padding: 13px 48px;
+     background-color: #c9bc9a;
+     border: 1.5px solid #c9bc9a;
+     color: #1a1a1a;
+     transition: background 0.15s, transform 0.1s;
+ }
+
+ .btn-save:hover {
+     background-color: #bfaf8a;
+     border-color: #bfaf8a;
+ }
+
+ .btn-save:active {
+     transform: scale(0.97);
+ }
+
+
+ /*Leaderboard PAGE*/
+
+ .lb-wrapper {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px 20px 60px;
+     width: 100%;
+ }
+
+.lb-title {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 20px 0 28px;
+    width: 100%;
+}
+
+.lb-card {
+    background-color: #fff;
+    border-radius: 28px;
+    padding: 36px 40px 40px;
+    width: 100%;
+    max-width: 780px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.lb-tabs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.lb-tab {
+    cursor: pointer;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 28px;
+    border-radius: 10px;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    color: #1a1a1a;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.lb-tab:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.lb-tab.active {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+}
+
+.lb-table-header {
+    display: grid;
+    grid-template-columns: 60px 200px 1fr 100px 110px;
+    padding: 0 8px 12px;
+    border-bottom: 1.5px solid #eeebe3;
+    margin-bottom: 8px;
+}
+
+.lb-col-label {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #555555;
+}
+
+.lb-col-label.center {
+    text-align: center;
+}
+
+.lb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.lb-row {
+    display: grid;
+    grid-template-columns: 60px 200px 1fr 100px 110px;
+    align-items: center;
+    padding: 16px 8px;
+    border-bottom: 1px solid #f0ede5;
+    transition: background 0.12s;
+    border-radius: 12px;
+}
+
+.lb-row:last-child {
+    border-bottom: none;
+}
+
+.lb-row:hover {
+    background: #f8f5ee;
+}
+
+/* Rank */
+.lb-rank {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Profile cell */
+.lb-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.lb-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #1a1a1a;
+    background: #f5f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.lb-avatar svg {
+    width: 30px;
+    height: 30px;
+    color: #888;
+}
+
+.lb-username {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+/* Time & Attempts */
+.lb-time,
+.lb-attempts {
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.lb-empty {
+    text-align: center;
+    padding: 48px 0;
+    font-family: 'Roboto Serif', Georgia, serif;
+    font-size: 15px;
+    color: #888;
+}
+
+.lb-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 6px;
+}
+
+/* Scrollbar styling */
+.lb-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lb-scroll::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 8px 0;
+}
+
+.lb-scroll::-webkit-scrollbar-thumb {
+    background: #a09070;
+    border-radius: 20px;
+}
+
+.lb-scroll::-webkit-scrollbar-thumb:hover {
+    background: #8a7a60;
+}

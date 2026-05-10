@@ -1,0 +1,68 @@
+/* =============================================
+   DESKTOP STYLES (min-width: 1025px)
+============================================= */
+@media (min-width: 1025px) {
+    .landing-content {
+        gap: 20px;
+    }
+
+    .landing-title {
+        font-size: 72px;
+    }
+
+    .landing-subtitle {
+        font-size: 20px;
+        max-width: 420px;
+    }
+
+    .form-card {
+        max-width: 500px;
+        padding: 48px 48px 36px;
+    }
+
+    .btn {
+        transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    .game-title {
+        font-size: 42px;
+    }
+
+    .tile {
+        width: 58px;
+        height: 58px;
+        font-size: 24px;
+    }
+}
+
+/*SETTINGS PAGE*/
+ @media (min-width: 1025px) {
+     .settings-title {
+         font-size: 42px;
+     }
+
+     .settings-card {
+         padding: 44px 44px 40px;
+     }
+ }
+
+/*Leaderboard PAGE*/
+ @media (min-width: 1025px) {
+     .lb-title {
+         font-size: 48px;
+     }
+
+     .lb-card {
+         padding: 44px 52px 48px;
+     }
+ }

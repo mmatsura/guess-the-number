@@ -1,0 +1,221 @@
+/* =============================================
+   MOBILE STYLES (max-width: 480px)
+============================================= */
+@media (max-width: 480px) {
+    .landing-content {
+        padding: 32px 16px;
+        gap: 14px;
+    }
+
+    .landing-title {
+        font-size: 42px;
+    }
+
+    .landing-subtitle {
+        font-size: 15px;
+    }
+
+    .landing-nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    .btn-outline,
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-wrapper {
+        padding: 0 12px 32px;
+    }
+
+    .form-card {
+        padding: 28px 20px 24px;
+        border-radius: 20px;
+    }
+
+    .form-title {
+        font-size: 26px;
+    }
+
+    .form-subtitle {
+        font-size: 12px;
+    }
+
+    .form-input {
+        font-size: 15px;
+        padding: 14px 48px 14px 16px;
+    }
+
+    .btn-full {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    .back-btn {
+        align-self: flex-start;
+    }
+
+    .screen-header {
+        padding: 12px 16px;
+    }
+
+    .icon-btn {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .form-footer {
+        font-size: 12px;
+    }
+
+    .link-btn {
+        font-size: 12px;
+    }
+
+    /* Game mobile */
+    .game-title {
+        font-size: 28px;
+    }
+
+    .tile {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+    .guess-row-tiles {
+        gap: 6px;
+    }
+
+    .game-controls {
+        gap: 20px;
+    }
+
+    .guess-input {
+        width: 150px;
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .try-btn {
+        padding: 10px 18px;
+        font-size: 15px;
+    }
+
+    .game-topbar {
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+    .game-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .overlay-card {
+        padding: 36px 28px 28px;
+    }
+
+    .overlay-title {
+        font-size: 24px;
+    }
+}
+
+/*SETTINGS PAGE*/
+@media (max-width: 480px) {
+    .settings-wrapper {
+        padding: 0 12px 48px;
+    }
+
+    .settings-title {
+        font-size: 24px;
+        margin-left: 52px;
+    }
+
+    .settings-card {
+        padding: 20px 16px 24px;
+        border-radius: 18px;
+        gap: 22px;
+    }
+
+    .avatar-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .avatar-fields {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .password-row {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-save {
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .save-row {
+        justify-content: stretch;
+    }
+}
+
+/*Leaderboard PAGE*/
+@media (max-width: 480px) {
+    .lb-wrapper {
+        padding: 20px 12px 48px;
+    }
+
+    .lb-title {
+        font-size: 28px;
+        padding: 24px 0 20px;
+    }
+
+    .lb-card {
+        padding: 20px 16px 24px;
+        border-radius: 18px;
+    }
+
+    .lb-tab {
+        font-size: 14px;
+        padding: 9px 18px;
+    }
+
+    .lb-table-header,
+    .lb-row {
+        grid-template-columns: 36px 1fr 70px 80px;
+    }
+
+    /* Hide spacer column on mobile */
+    .lb-spacer,
+    .lb-col-label:nth-child(3) {
+        display: none;
+    }
+
+    .lb-avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .lb-username {
+        font-size: 14px;
+    }
+
+    .lb-time,
+    .lb-attempts {
+        font-size: 14px;
+    }
+
+    .lb-rank {
+        font-size: 16px;
+    }
+}
