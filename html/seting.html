@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account</title>
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+<div class="screen">
+    <div class="settings-wrapper">
+        <a href="game.html" class="back-btn" aria-label="Go back" style="margin-top: 30px;">
+            <img src="../img/arrow-left-solid.svg" alt="Back" width="20" height="20" />
+        </a>
+ 
+        <!-- Header -->
+        <div class="settings-header" style="display: flex; align-items: center; margin: 30px 0;">
+            <h1 class="settings-title" style="margin: 0;">Your account</h1>
+        </div>
+ 
+        <!-- Card -->
+        <div class="settings-card" style="padding-top: 80px;">
+ 
+            <!-- Avatar + top fields -->
+            <div class="avatar-section">
+                <div class="avatar-block">
+                    <div class="avatar-circle">
+                        <img src="../img/user-solid.svg" alt="Avatar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                    </div>
+                    <button class="btn-change" onclick="document.getElementById('avatar-input').click()">Change</button>
+                    <input type="file" id="avatar-input" accept="image/*" style="display:none">
+                </div>
+ 
+                <div class="avatar-fields">
+                    <div class="field-group">
+                        <label class="field-label" for="username">User Name</label>
+                        <input class="form-input" type="text" id="username" placeholder="User Name">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="gender">Gender</label>
+                        <div class="select-wrapper">
+                            <select id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not">Prefer not to say</option>
+                            </select>
+                            <span class="select-arrow">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="country">Country</label>
+                        <input class="form-input" type="text" id="country" placeholder="Country">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="email">Email</label>
+                        <input class="form-input" type="email" id="email" placeholder="Useremail@gmail.com">
+                    </div>
+                </div>
+            </div>
+ 
+            <hr class="settings-divider">
+ 
+            <!-- Password section -->
+            <div class="password-section">
+                <div class="password-row">
+                    <div class="field-group">
+                        <label class="field-label" for="old-password">Old Password</label>
+                        <input class="form-input" type="password" id="old-password" placeholder="Old Password">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="new-password">New Password</label>
+                        <input class="form-input" type="password" id="new-password" placeholder="New password">
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label" for="confirm-password">Confirm Password</label>
+                        <input class="form-input" type="password" id="confirm-password" placeholder="Confirm Password">
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Save -->
+            <div class="save-row">
+                <button class="btn-save" onclick="handleSave()">Save</button>
+            </div>
+ 
+        </div>
+    </div>
+</div>
+ 
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+ 
+<script>
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2800);
+    }
+ 
+    function handleSave() {
+        const newPass = document.getElementById('new-password').value;
+        const confirmPass = document.getElementById('confirm-password').value;
+ 
+        if (newPass && newPass !== confirmPass) {
+            showToast('Passwords do not match');
+            return;
+        }
+        showToast('Changes saved!');
+    }
+ 
+    // Avatar preview
+    document.getElementById('avatar-input').addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const circle = document.querySelector('.avatar-circle');
+            circle.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
+</body>
+</html>

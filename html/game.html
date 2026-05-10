@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numberrrr – Guess the Number</title>
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="toast" id="toast"></div>
+
+    <!-- Win/Loss Overlay -->
+    <div class="game-overlay" id="overlay">
+        <div class="overlay-card">
+            <div class="overlay-emoji" id="overlay-emoji"></div>
+            <h2 class="overlay-title" id="overlay-title">You won!</h2>
+            <p class="overlay-message" id="overlay-message">Great job! You guessed the number.</p>
+            <div class="overlay-actions">
+                <button class="btn btn-primary" id="play-again-btn">Play Again</button>
+                <a href="../html/index.html" class="btn btn-outline" style="text-decoration:none;">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="game-overlay" id="help-modal">
+        <div class="overlay-card" style="max-width:380px;">
+            <h2 class="overlay-title" style="margin-bottom:4px;">How to Play</h2>
+            <div style="text-align:left; width:100%;">
+                <p
+                    style="font-family:'Roboto Serif', Georgia,serif; font-size:14px; color:#000; margin-bottom:12px;">
+                    Guess the secret number in 5 attempts. After each guess, each digit tile will show a colour hint:
+                </p>
+                <div class="legend"
+                    style="justify-content:flex-start; flex-direction:column; gap:10px; margin-bottom:0;">
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--correct" style="width:24px;height:24px;border-radius:6px;">
+                        </div>
+                        <span style="font-size:13px; color:#1a1a1a;"><strong>Green</strong> — right digit, right
+                            position</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--close" style="width:24px;height:24px;border-radius:6px;">
+                        </div>
+                        <span style="font-size:13px; color:#1a1a1a;"><strong>Orange</strong> — right digit, wrong
+                            position</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-dot--wrong" style="width:24px;height:24px;border-radius:6px;">
+                        </div>
+                        <span style="font-size:13px; color:#1a1a1a;"><strong>Tan</strong> — digit not in number</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-tan btn-full" style="margin-top:20px;" onclick="closeHelp()">Got it!</button>
+        </div>
+    </div>
+
+    <div class="game-screen">
+        <!-- Top bar -->
+        <div class="game-topbar">
+            <button class="game-icon-btn" title="Help" onclick="openHelp()">
+                <img src="../img/_.svg" alt="Help" width="18" height="18">
+            </button>
+            <div class="modal-overlay" id="helpModal">
+                <div class="modal-content">
+                    <button class="modal-close" onclick="closeHelp()">&times;</button>
+            
+                    <h2 class="modal-title">How to Play?</h2>
+                    <p class="modal-text">Guess the secret code in a limited number of attempts.</p>
+                    <ul class="modal-list">
+                        <li>After each attempt, you receive hints in the form of colored squares.</li>
+                        <li>You have a limited number of attempts and time to guess the code.</li>
+                    </ul>
+            
+                    <h3 class="example-title">Examples:</h3>
+            
+                    <div class="example-item">
+                        <div class="example-tiles">
+                            <span class="tile-preview correct">6</span><span>4</span><span>2</span><span>1</span>
+                        </div>
+                        <p><strong>6</strong> - the number is correct and in the correct position</p>
+                    </div>
+            <!--
+                    <div class="example-item">
+                        <div class="example-tiles">
+                            <span>6</span><span class="tile-preview correct-multi">4</span><span>2</span><span>1</span>
+                        </div>
+                        <p><strong>4</strong> - the number is correct and there are multiple correct numbers like this</p>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="example-tiles">
+                            <span>6</span><span>4</span><span class="tile-preview correct-wrong-position">2</span><span>1</span>
+                        </div>
+                        <p><strong>2</strong> - one number is correct but in the wrong position</p>
+                    </div>
+                -->
+                    <div class="example-item">
+                        <div class="example-tiles">
+                            <span>6</span><span>4</span><span>2</span><span class="tile-preview correct-multi-wrong-position">1</span>
+                        </div>
+                        <p><strong>1</strong> - number is correct but in the wrong position</p>
+                    </div>
+            
+                </div>
+            </div>
+            <button class="game-icon-btn" title="Profile" onclick="window.location.href='seting.html'">
+                <img src="../img/user-solid.svg" alt="Profile" width="20" height="20">
+            </button>
+            <button class="game-icon-btn" title="Settings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+            </button>
+            <button class="game-icon-btn" title="Search" onclick="window.location.href='leaderBoard.html'">
+                <img src="../img/sort-amount-up-alt-solid.svg" alt="Search" width="18" height="18">
+            </button>
+        </div>
+
+        <main class="game-main">
+            <h1 class="game-title">Guess the number</h1>
+
+            <div class="game-controls">
+                <div class="digits-group">
+                    <span class="digits-label">Number of digits</span>
+                    <div class="digits-select">
+                        <select id="digits-select" onchange="startNewGame()">
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <span class="digits-arrow">
+                            <img src="../img/angle-down-solid.svg" alt="Down arrow" width="12">
+                        </span>
+                    </div>
+                </div>
+            
+                <div class="stat-box">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="timer">0:00</span>
+                </div>
+                <div class="digits-group">
+                    <div class="stat-box">
+                        <span class="stat-label">Attempts</span>
+                        <span class="stat-value" id="attempts-display">4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guess input -->
+            <div class="guess-row">
+                <input class="guess-input" type="text" id="guess-input" placeholder="Enter digits…" inputmode="numeric"
+                    maxlength="6" autocomplete="off" />
+                <button class="try-btn" id="try-btn" onclick="submitGuess()">Try</button>
+            </div>
+
+            <!-- Guess history -->
+            <div class="guess-history" id="guess-history"></div>
+        </main>
+    </div>
+    <script src="../script/game.js"></script>
+</body>
+
+</html>

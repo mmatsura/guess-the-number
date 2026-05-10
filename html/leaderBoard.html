@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numberrrr – Guess the Number</title>
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div class="screen">
+
+        <!-- Back button — outside wrapper, absolute to screen -->
+        <a href="game.html" class="back-btn" aria-label="Go back">
+            <img src="../img/arrow-left-solid.svg" alt="Back" width="20" height="20" />
+        </a>
+
+        <div class="lb-wrapper">
+
+            <h1 class="lb-title " style="margin-top: 30px;">LeaderBoard</h1>
+
+            <div class="lb-card">
+
+                <!-- Tabs -->
+                <div class="lb-tabs">
+                    <button class="lb-tab" onclick="setTab(4, this)">4 numbers</button>
+                    <button class="lb-tab active" onclick="setTab(5, this)">5 numbers</button>
+                    <button class="lb-tab" onclick="setTab(6, this)">6 numbers</button>
+                </div>
+
+                <!-- Table header -->
+                <div class="lb-table-header">
+                    <span class="lb-col-label">Top</span>
+                    <span class="lb-col-label">Profile</span>
+                    <span class="lb-col-label"></span>
+                    <span class="lb-col-label center">Time</span>
+                    <span class="lb-col-label center">Attempts</span>
+                </div>
+
+                <!-- Rows -->
+                <div class="lb-scroll">
+                    <div class="lb-list" id="lb-list"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../script/game.js"></script>
+
+    <script>
+        let currentTab = 5;
+
+        async function loadLeaderboard(digits) {
+            const listContainer = document.getElementById('lb-list');
+
+            // Показуємо завантаження
+            listContainer.innerHTML = `<div class="lb-empty">Loading...</div>`;
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/game/leaderboard?digits=${digits}`);
+                const data = await response.json();
+
+                if (!data || data.length === 0) {
+                    listContainer.innerHTML = `<div class="lb-empty">No results yet. Be the first!</div>`;
+                    return;
+                }
+
+                // Форматуємо час з секунд у MM:SS
+                function formatTime(seconds) {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    return `${mins}:${secs.toString().padStart(2, '0')}`;
+                }
+
+                listContainer.innerHTML = data.map((player, index) => `
+                    <div class="lb-row">
+                        <span class="lb-rank">${index + 1}</span>
+                        <div class="lb-profile">
+                            <div class="lb-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <span class="lb-username">${player.username || 'Anonymous'}</span>
+                        </div>
+                        <span class="lb-spacer"></span>
+                        <span class="lb-time">${formatTime(player.best_time)}</span>
+                        <span class="lb-attempts">${player.best_attempts}</span>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                listContainer.innerHTML = `<div class="lb-empty">Error loading leaderboard</div>`;
+            }
+        }
+
+        function setTab(digits, btn) {
+                currentTab = digits;  // ← було currentDigits
+                document.querySelectorAll('.lb-tab').forEach(t => t.classList.remove('active'));
+                btn.classList.add('active');
+                loadLeaderboard(digits);
+            }
+
+        // Завантажуємо початкову таблицю (5 цифр)
+        loadLeaderboard(5);
+    </script>
+</body>
+
+</html>

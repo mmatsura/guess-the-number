@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numberrrr – Sign Up</title>
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="screen" id="screen-signup">
+        <main class="form-wrapper">
+            <a href="index.html" class="back-btn" aria-label="Go back">
+                <img src="../img/arrow-left-solid.svg" alt="Back" width="20" height="20" />
+            </a>
+
+            <div class="form-card">
+                <h2 class="form-title">Create an account</h2>
+                <p class="form-subtitle">Create an account to enjoy the full experience</p>
+
+                <form novalidate>
+                    <div class="input-group">
+                        <input class="form-input" type="text" placeholder="Username" autocomplete="username" />
+                        <span class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="4" />
+                                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="input-group">
+                        <input class="form-input" type="email" placeholder="Email Address" autocomplete="email" />
+                        <span class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="M2 8l10 6 10-6" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="input-group">
+                        <input class="form-input" type="password" placeholder="Password" autocomplete="new-password" />
+                        <span class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="11" width="14" height="10" rx="2" />
+                                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <button type="submit" class="btn btn-tan btn-full" id="signupBtn">Create Account</button>
+                </form>
+
+                <p class="form-footer">
+                    Already have an account?
+                    <a href="login.html" class="link-btn">Log in</a>
+                </p>
+            </div>
+        </main>
+    </div>
+    <script src="../script/game.js"></script>
+    <script>
+        const signupForm = document.querySelector('#screen-signup form');
+        const usernameInput = document.querySelector('#screen-signup input[placeholder="Username"]');
+        const emailInput = document.querySelector('#screen-signup input[type="email"]');
+        const passwordInput = document.querySelector('#screen-signup input[type="password"]');
+        const signupBtn = document.querySelector('#screen-signup .btn-tan');
+
+        async function handleSignup() {
+            const username = usernameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!username || !email || !password) {
+                showToast('Please fill in all fields', true);
+                return;
+            }
+
+            if (password.length < 4) {
+                showToast('Password must be at least 4 characters', true);
+                return;
+            }
+
+            const success = await register(username, email, password);
+
+            if (success) {
+                window.location.href = 'game.html';
+            }
+        }
+
+        signupBtn.onclick = (e) => {
+            e.preventDefault();
+            handleSignup();
+        };
+
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSignup();
+        });
+    </script>
+</body>
+
+</html>

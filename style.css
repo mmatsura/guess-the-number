@@ -1,0 +1,416 @@
+/* =============================================
+   CSS VARIABLES & RESET
+============================================= */
+:root {
+    --bg: #d9ceb0;
+    --bg-darker: #c9bc9a;
+    --card-bg: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --btn-primary-bg: #1a1a1a;
+    --btn-primary-text: #ffffff;
+    --btn-outline-border: #888888;
+    --btn-tan-bg: #c9bc9a;
+    --btn-tan-hover: #bfaf8a;
+    --input-border: #cccccc;
+    --input-focus: #a09070;
+    --link-color: #555555;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   SCREEN SYSTEM
+============================================= */
+.screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+
+.screen--hidden {
+    display: none;
+}
+
+/* =============================================
+   SCREEN HEADER (Sign in / code icon)
+============================================= */
+.screen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-height: 48px;
+}
+
+.screen-header--bare {
+    min-height: 48px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    padding: 4px 6px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+}
+
+.icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* =============================================
+   BACK BUTTON
+============================================= */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+    margin-bottom: 12px;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* =============================================
+   LANDING SCREEN
+============================================= */
+.landing-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    gap: 16px;
+}
+
+.landing-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.landing-subtitle {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.landing-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* =============================================
+   BUTTONS
+============================================= */
+.btn {
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-radius: var(--radius-sm);
+    padding: 10px 28px;
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Outline style (Sign up / Log in) */
+.btn-outline {
+    background: transparent;
+    border: 1.2px solid var(--btn-outline-border);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Primary dark style (PLAY) */
+.btn-primary {
+    background-color: var(--btn-primary-bg);
+    border: 1.2px solid var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+}
+
+/* Tan / sand style (form submit buttons) */
+.btn-tan {
+    background-color: var(--btn-tan-bg);
+    border: 1.2px solid var(--btn-tan-bg);
+    color: var(--text-primary);
+}
+
+.btn-tan:hover {
+    background-color: var(--btn-tan-hover);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 8px;
+    border-radius: var(--radius-md);
+}
+
+/* =============================================
+   FORM WRAPPER & CARD
+============================================= */
+.form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 40px;
+    width: 100%;
+}
+
+.form-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 36px 36px 28px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.form-card--login {
+    margin-top: 12px;
+}
+
+.form-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* =============================================
+   FORM INPUTS
+============================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 13px 44px 13px 16px;
+    border: 1.2px solid var(--input-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-primary);
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(160, 144, 112, 0.15);
+}
+
+.input-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* =============================================
+   FORM FOOTER LINK
+============================================= */
+.form-footer {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 0;
+    margin-left: 4px;
+    transition: opacity 0.15s;
+}
+
+.link-btn:hover {
+    opacity: 0.65;
+}
+
+/* =============================================
+   TABLET — max 768px
+============================================= */
+@media (max-width: 768px) {
+    .form-card {
+        padding: 28px 24px 22px;
+        max-width: 380px;
+    }
+
+    .landing-nav {
+        gap: 12px;
+    }
+
+    .btn {
+        padding: 10px 22px;
+    }
+}
+
+/* =============================================
+   MOBILE — max 480px
+============================================= */
+@media (max-width: 480px) {
+    .landing-content {
+        padding: 32px 16px;
+        gap: 12px;
+    }
+
+    .landing-title {
+        font-size: 34px;
+    }
+
+    .landing-subtitle {
+        font-size: 14px;
+    }
+
+    .landing-nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding: 0 24px;
+    }
+
+    .btn-outline,
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-wrapper {
+        padding: 0 12px 32px;
+    }
+
+    .form-card {
+        padding: 24px 18px 20px;
+        border-radius: var(--radius-md);
+    }
+
+    .form-title {
+        font-size: 24px;
+    }
+
+    .form-subtitle {
+        font-size: 12px;
+    }
+
+    .form-input {
+        font-size: 15px;
+        padding: 13px 44px 13px 14px;
+    }
+
+    .btn-full {
+        font-size: 14px;
+        padding: 13px;
+    }
+
+    .back-btn {
+        align-self: flex-start;
+    }
+
+    .screen-header {
+        padding: 12px 16px;
+    }
+}
