@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', initGame);
 // ----------------------------------------------
 // ЗАПУСК СЕРВЕРА
 // -----------------------------------------------
-const API_URL = 'https://guess-the-number-rt3e.onrender.com';
+const API_URL = 'https://guess-the-number-rt3e.onrender.com/api';
 
 function getToken() {
     return localStorage.getItem('token');
