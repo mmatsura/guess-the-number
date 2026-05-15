@@ -15,9 +15,12 @@ const path = require('path');
 app.use(express.static(__dirname));        // для css, script, img
 app.use(express.static(path.join(__dirname, 'html')));
 app.use(express.static(path.join(__dirname, 'public')));
-mongoose.connect('mongodb://localhost:27017/GuessGame')
-  .then(() => console.log(' Підключено до MongoDB (GuessGame)'))
-    .catch(err => console.error(' Помилка:', err));
+
+const DB_URI = 'mongodb+srv://matsura758_db_user:h7jjcZYnz4x2erl3@sportbuddy-db.dfwy8b7.mongodb.net/GameDB?retryWrites=true&w=majority';
+
+mongoose.connect(DB_URI)
+  .then(() => console.log('Успішно підключено до MongoDB Atlas (база: GameDB)'))
+  .catch(err => console.error('Помилка підключення:', err));
   
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
@@ -249,6 +252,20 @@ app.get('/api/game/leaderboard', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// ОТРИМАТИ ДАНІ ПРОФІЛЮ ДЛЯ СТОРІНКИ ACCOUNT
+app.get('/api/user/profile', authMiddleware, async (req, res) => {
+  try {
+    // Шукаємо користувача за ID, який дістали з токена в authMiddleware
+    const user = await User.findById(req.userId).select('-password'); 
+    if (!user) return res.status(404).json({ error: 'Користувача не знайдено' });
+    
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Помилка завантаження профілю' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Сервер працює на http://localhost:${PORT}`);
 });
