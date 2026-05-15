@@ -5,9 +5,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const JWT_SECRET = process.env.JWT_SECRET;
+const DB_URI = process.env.DB_URI;
 
-const JWT_SECRET = 'a7f3e8d2c1b9a4f6e7d8c9b0a1f2e3d4c5b6a7f8e9d0c1';
 app.use(cors());
 app.use(express.json());
 
@@ -15,8 +16,6 @@ const path = require('path');
 app.use(express.static(__dirname));        // для css, script, img
 app.use(express.static(path.join(__dirname, 'html')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-const DB_URI = 'mongodb+srv://matsura758_db_user:h7jjcZYnz4x2erl3@sportbuddy-db.dfwy8b7.mongodb.net/GameDB?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URI)
   .then(() => console.log('Успішно підключено до MongoDB Atlas (база: GameDB)'))
